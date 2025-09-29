@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trip.com - 검색</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background: white;
+        padding: 30px 40px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        width: 350px;
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 14px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 15px;
+        background-color: #74ebd5;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: #67d6c4;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <!--입력 내용을 서버로 제출-->
+        <form action="/result/hotel" method = "POST">
+        <h1>호텔 리뷰 검색</h1>
+        <label>출발 도시</label>
+        <input type="text" placeholder="출발 도시를 영문 3글자로 입력" id="dcity" name ="dcity">
+        <label>도착 도시</label>
+        <select id ="acity" name = "acity">
+            <option value="219">오사카</option>
+            <option value="248">후쿠오카</option>
+            <option value="359">방콕</option>
+            <option value="2">상하이</option>
+            <option value="274">서울</option>
+            <option value="228">도쿄</option>
+            <option value="253">부산</option>
+            <option value="1356">다낭</option>
+            <option value="1777">나트랑</option>
+            <option value="737">제주</option>
+        </select>
+        <label>출발 날짜</label>
+        <input type="date" id="checkin" name = "checkin">
+        <label>도착 날짜</label>
+        <input type="date" id="checkout" name = "checkout">
+        <label>인원 수</label>
+        <select id="people" name ="people">
+            <option value="1">1명</option>
+            <option value="2">2명</option>
+            <option value="3">3명</option>
+            <option value="4">4명</option>
+        </select>
+        <button type = "submit" onclick="return search()" >검색</button>
+        </form>
+    </div>
+
+    <script>
+        function search() {
+            const dcity = document.getElementById('dcity').value;
+            const acity = document.getElementById('acity').value;
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const people = document.getElementById('people').value;
+
+            //입력 내용 재확인
+            const check = `출발 도시: ${dcity} \n도착 도시 : ${acity} \n체크인: ${checkin}\n체크아웃: ${checkout}\n인원: ${people}`;
+            return confirm(check);
+        }
+    </script>
+</body>
+</html>
