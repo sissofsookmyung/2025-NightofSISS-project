@@ -11,14 +11,14 @@ Trip.com의 항공권 및 숙박 데이터를 크롤링해, 사용자가 원하�
 ※ Selenium 사용을 위해 [ChromeDriver](https://sites.google.com/chromium.org/driver/)가 설치되어 있어야 하며,
    버전은 사용하는 Chrome 브라우저와 일치해야 함
    
-1. 프로젝트 클론
+1. 프로젝트 클론  
 git clone https://github.com/La-hee/SISS-project.git
 cd SISS-project/team8
 
-3. 필요한 패키지 설치
+3. 필요한 패키지 설치  
 pip install -r requirements.txt
 
-4. 웹 애플리케이션 실행
+5. 웹 애플리케이션 실행  
 python fianl.py
 
  ## 🛠️ 기술 스택
